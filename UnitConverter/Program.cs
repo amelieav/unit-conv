@@ -1,9 +1,17 @@
+<<<<<<< Updated upstream
 ﻿using System;
+=======
+﻿// Program.cs
+using System;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+>>>>>>> Stashed changes
 
 public class HelloWorld
 {
     public static void Main(string[] args)
     {
+<<<<<<< Updated upstream
 
         int windowWidth = Console.WindowWidth;
         string[] lines = new string[] 
@@ -88,3 +96,28 @@ public class HelloWorld
 
     
 }
+=======
+        string input = Console.ReadLine(); // Read JSON input from Electron
+        JObject jObject = JObject.Parse(input);
+        string action = jObject.Value<string>("action");
+        
+        JObject response = new JObject();
+
+        if (action == "InchesToCM")
+        {
+            double inches = jObject.Value<double>("value");
+            double cm = inches * 2.54;
+            response["result"] = cm;
+        }
+        else if (action == "CMToInches")
+        {
+            double cm = jObject.Value<double>("value");
+            double inches = cm / 2.54;
+            response["result"] = inches;
+        }
+
+        string output = JsonConvert.SerializeObject(response);
+        Console.WriteLine(output); // Send JSON output to Electron
+    }
+}
+>>>>>>> Stashed changes

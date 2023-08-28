@@ -1,0 +1,41 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Unit Converter</title>
+</head>
+
+<script>
+    // In your renderer.js
+function convertInchesToCM() {
+  // You'll need to set up IPC or another method to communicate with the main process
+  // Then send the command to convert inches to cm
+  const dataToSend = {
+    action: 'InchesToCM',
+    value: 12.0 // replace with value from form input
+  };
+
+  // Use IPC or other communication method to send this to the main process
+}
+
+function convertCMToInches() {
+  // Similarly, set up IPC or another method to communicate with the main process
+  // Then send the command to convert cm to inches
+  const dataToSend = {
+    action: 'CMToInches',
+    value: 30.48 // replace with value from form input
+  };
+
+  // Use IPC or other communication method to send this to the main process
+}
+
+</script>
+
+
+<body>
+  <h1>Welcome to Unit Converter</h1>
+  <!-- Add your UI elements here -->
+  <button onclick="convertInchesToCM()">Convert Inches to CM</button>
+  <button onclick="convertCMToInches()">Convert CM to Inches</button>
+</body>
+</html>
